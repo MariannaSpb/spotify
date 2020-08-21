@@ -18,9 +18,7 @@ export  default class Header extends React.Component {
                     <img className='header__logo-img' src={logo} alt='logo' />
                 </NavLink>
                 </div>
-                <NavLink className="header_button" to='/home'>Go to your page </NavLink>
-                {/* <SearchForm accessToken = {this.props.accessToken}/> */}
-
+                {/* <NavLink className="header_button" to='/home'>Go to your page </NavLink> */}
             </header>
         )
     }

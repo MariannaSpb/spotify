@@ -93,20 +93,10 @@ export default class AuthController extends React.Component {
           <div>Hi!
             {/* <p>you are logged in  Spotify <button onClick={this.logOut}>LOG OUT</button></p> */}
         <p> Token:{accessToken}</p>
-        <Home accessToken = {accessToken}/>
+        <Redirect to='/home' />
+        {/* <Home accessToken = {accessToken}/> */}
           </div>
            
-          
-     
-        // <div className="login">
-        //   <Header accessToken = {accessToken}/>
-        //   {this.state.accessToken
-        //     ?
-        //     <p>you are logged in  Spotify <button onClick={this.logOut}>LOG OUT</button></p>
-        //     : <p className='login__link'>TO CONTINUE YOU NEED TO <a href={authLink}> LOG IN</a></p>
-        //     }
-          
-        // </div>
         )
     }
     

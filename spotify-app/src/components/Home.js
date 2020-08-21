@@ -72,6 +72,7 @@ export default class Home extends React.Component  {
         return (
             <section className='homepage'>
             <p>you are logged in  Spotify <button onClick={this.logOutBack}>LOG OUT</button></p>
+            {/* <NavLink className="homepage__link-back" to='/home'>Go to your page </NavLink> */}
               <SearchForm accessToken = {this.props.accessToken}/>
               <ArtistList artistArray={artistArray} />
             </section>
@@ -79,4 +80,3 @@ export default class Home extends React.Component  {
         )
     }
 }
-//<AuthController />
