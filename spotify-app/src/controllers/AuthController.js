@@ -1,6 +1,7 @@
 import React from 'react';
+import { Redirect } from "react-router-dom";
 import  {client_id, client_secret,  redirect_uri, authLink} from '../config';
-import Header from '../components/Header'
+import Home from '../components/Home'
 
 
 
@@ -80,6 +81,7 @@ export default class AuthController extends React.Component {
       
       console.log('isAuth', accessToken);
       const { isAuthenticatedWithSpotify  } = this.state;
+   
 
       if(!isAuthenticatedWithSpotify) {
         return (
@@ -87,15 +89,24 @@ export default class AuthController extends React.Component {
         )
       }  else 
         return (
-        <div>
-          <Header accessToken = {accessToken}/>
-          {this.state.accessToken
-            ?
-            <p>you are logged in  Spotify <button onClick={this.logOut}>LOG OUT</button></p>
-            : <p className='login__link'>TO CONTINUE YOU NEED TO <a href={authLink}> LOG IN</a></p>
-            }
+        
+          <div>Hi!
+            {/* <p>you are logged in  Spotify <button onClick={this.logOut}>LOG OUT</button></p> */}
+        <p> Token:{accessToken}</p>
+        <Home accessToken = {accessToken}/>
+          </div>
+           
           
-        </div>
+     
+        // <div className="login">
+        //   <Header accessToken = {accessToken}/>
+        //   {this.state.accessToken
+        //     ?
+        //     <p>you are logged in  Spotify <button onClick={this.logOut}>LOG OUT</button></p>
+        //     : <p className='login__link'>TO CONTINUE YOU NEED TO <a href={authLink}> LOG IN</a></p>
+        //     }
+          
+        // </div>
         )
     }
     

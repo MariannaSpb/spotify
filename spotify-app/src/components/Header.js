@@ -6,7 +6,11 @@ import SpotifyAu from "../controllers/AuthController";
 
 
 export  default class Header extends React.Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
+        // console.log('token', this.props.accessToken)
         return (
             <header className="header">
                 <div className='header__logo'>
@@ -15,7 +19,8 @@ export  default class Header extends React.Component {
                 </NavLink>
                 </div>
                 <NavLink className="header_button" to='/home'>Go to your page </NavLink>
-                <SearchForm accessToken = {this.props.accessToken}/>
+                {/* <SearchForm accessToken = {this.props.accessToken}/> */}
+
             </header>
         )
     }

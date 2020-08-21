@@ -61,8 +61,8 @@ export default class SearchField extends React.Component {
 
     render () {
         return (
-              <div >
-                  <label className= 'form__label' htmlFor='search'>Search
+              <div className="form__field">
+                  <label className= 'form__label' htmlFor='search'>
                   <input className='form__input' type='text' id='search' name='searchInput' value={this.state.value} onChange={this.handleChange} placeholder='Search...' />
                   </label>
                   <SearchButton onClickHandler={this.handleSubmit} />

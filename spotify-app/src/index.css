@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
-/* .container {
+.container {
   background-color: black;
-} */
+  color: white;
+}

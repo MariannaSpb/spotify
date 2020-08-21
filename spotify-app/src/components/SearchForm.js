@@ -31,11 +31,13 @@ changeLimit (value){
   
       const { type,  limit } = this.state;
         return (
+          <div className="form-container">
               <form className='form-container'>
                 <SearchField accessToken = {this.props.accessToken} type = {type} limit = {limit}/>
                 <TypeButtonsList  />
                 <LimitButtonsList setValue={this.changeLimit} limit = {limit}/>
               </form>
+          </div>
         )
     }
 

@@ -11,7 +11,7 @@ export default class SearchButton extends React.Component {
     render() {
         return (
         
-                <button onClick={this.props.onClickHandler} type="submit">Search</button>
+                <button  className="form__search-button" onClick={this.props.onClickHandler} type="submit">Search</button>
             
         )
     }
