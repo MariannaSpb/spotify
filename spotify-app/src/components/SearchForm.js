@@ -10,7 +10,9 @@ export default class SearchForm extends React.Component {
     super(props)
     this.state = {
         type : 'artist',
-        limit: ''
+        limit: '',
+
+        accessToken: localStorage.getItem('accessToken')
     }
 
     this.changeLimit = this.changeLimit.bind(this);
@@ -30,6 +32,7 @@ changeLimit (value){
     render () {
   
       const { type,  limit } = this.state;
+      console.log('search', this.props.accessToken)
         return (
           <div className="form-container">
               <form className='form-container'>

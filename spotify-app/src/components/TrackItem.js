@@ -11,7 +11,14 @@ export default class TrackItem extends React.Component {
     
         return (
             <li className="track__item">
-            <a className="track__link"></a>
+            <a className="track__link" href={this.props.obj.spotifyLink}>{this.props.obj.name}</a>
+            <p>duration:{this.props.obj.duration}</p>
+            <p>popularity:{this.props.obj.popularity}</p>
+            <p>albumName:{this.props.obj.albumName}</p>
+            <p>albumSpotifyLink:{this.props.obj.albumSpotifyLink}</p>
+            <p>artistName:{this.props.obj.artistName}</p>
+            <p>artistSpotifyLink:{this.props.obj.artistSpotifyLink}</p>
+            
             </li>
         )
     }

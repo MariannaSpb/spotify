@@ -80,6 +80,7 @@ export default class AuthController extends React.Component {
       const accessToken = this.state.accessToken;
       
       console.log('isAuth', accessToken);
+      console.log('STATEAuth', this.state);
       const { isAuthenticatedWithSpotify  } = this.state;
    
 
@@ -92,9 +93,10 @@ export default class AuthController extends React.Component {
         
           <div>Hi!
             {/* <p>you are logged in  Spotify <button onClick={this.logOut}>LOG OUT</button></p> */}
-        <p> Token:{accessToken}</p>
-        <Redirect to='/home' />
-        {/* <Home accessToken = {accessToken}/> */}
+        <Home accessToken = {accessToken}/>
+
+        {/* <Redirect to='/home' /> */}
+
           </div>
            
         )

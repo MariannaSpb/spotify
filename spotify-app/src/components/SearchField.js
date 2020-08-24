@@ -3,9 +3,7 @@ import {searchEndpoint} from '../config';
 import SearchButton from './SearchButton';
 
 export default class SearchField extends React.Component {
-    // state = {
-    //     valueInput: '',
-    //   };
+
     constructor(props) {
         super(props);
         this.state = {value: ''};
@@ -19,10 +17,6 @@ export default class SearchField extends React.Component {
        
     this.setState({value: event.target.value});
     }
-
-    // componentDidUpdate() {
-    //     this.setState({value: ''});
-    // }
 
 
     handleSubmit(event) {
@@ -60,6 +54,7 @@ export default class SearchField extends React.Component {
 
 
     render () {
+        console.log('FIELD', this.props.accessToken)
         return (
               <div className="form__field">
                   <label className= 'form__label' htmlFor='search'>

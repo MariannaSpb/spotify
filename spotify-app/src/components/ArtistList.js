@@ -18,7 +18,7 @@ export default class ArtistList extends React.Component {
             <section className="artist">
                 <ul className="artist__list">
                 {this.props.artistArray.map((itemObj, id) => { 
-                    return <ArtistItem itemObj={itemObj} key={itemObj.id} index={id}></ArtistItem>
+                    return <ArtistItem itemObj={itemObj} key={id} index={id}></ArtistItem>
                 })}
                 </ul>
             </section>
