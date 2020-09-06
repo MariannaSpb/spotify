@@ -12,7 +12,7 @@ export default class PlayListItem extends React.Component {
     render() {
         // const { name, spotifyLink, genres, image } = this.state;
         return (
-            <li className="playlist__item">
+            <li className="playlist__item"> PLAYLIST
             <a className="" href={this.props.obj.link}>{this.props.obj.name}</a>
             </li>
         )

@@ -1,0 +1,17 @@
+.login {
+    height: 100vh;
+}
+
+.login__link {
+    font-size: 78px;
+    font-size: 78px;
+    text-align: center;
+    color: rgba(213,250,48,0.51);
+    text-shadow: 0 0 15px rgba(213,250,48,1), 0 0 10px rgba(213,250,48,1);
+}
+
+a {
+    color: #FF1D0B;
+    text-decoration: none;
+    text-shadow: 0 0 15px #FF1D0B, 0 0 10px rgba(213,250,48,1);
+}

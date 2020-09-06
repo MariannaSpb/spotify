@@ -1,7 +1,6 @@
 import React from "react";
 import SearchField from './SearchField';
 import TypeButtonsList from "./TypeButtonsList";
-import SearchButton from './SearchButton';
 import LimitButtonsList from './LimitButtonsList';
 
 
@@ -9,13 +8,12 @@ export default class SearchForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-        type : 'artist',
+        type : '',
         limit: '',
-
-        accessToken: localStorage.getItem('accessToken')
     }
 
     this.changeLimit = this.changeLimit.bind(this);
+    this.changeLType = this.changeLType.bind(this)
     
 }
 
@@ -26,19 +24,22 @@ changeLimit (value){
   console.log('value', value);
 }
 
-
+changeLType (value) {
+  this.setState({
+    type : value
+})
+console.log('type', value);
+}
 
 
     render () {
-  
       const { type,  limit } = this.state;
-      console.log('search', this.props.accessToken)
         return (
           <div className="form-container">
-              <form className='form-container'>
-                <SearchField accessToken = {this.props.accessToken} type = {type} limit = {limit}/>
-                <TypeButtonsList  />
-                <LimitButtonsList setValue={this.changeLimit} limit = {limit}/>
+              <form >
+                <SearchField type = {type} limit = {limit}/>
+                <TypeButtonsList  setValue={this.changeLType} limit = {limit}/>
+                <LimitButtonsList setValue={this.changeLimit} type = {type}/>
               </form>
           </div>
         )

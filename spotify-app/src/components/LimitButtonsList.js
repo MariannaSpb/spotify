@@ -14,8 +14,6 @@ export default class LimitButtonsList extends React.Component {
         this.setState({
             selectedValue: event.target.value
         });
-        console.log('val', event.target.value)
-        console.log('value', this.state)
         this.props.setValue(event.target.value)
         }
   
@@ -24,28 +22,30 @@ export default class LimitButtonsList extends React.Component {
     render() {
         return (
             <div className="checkbox checkbox__container">
-                <label>
-                    <input type="radio" 
+                Показывать загрузить первые:
+                <input type="radio"
+                id='20'
                         name="limit" 
                         value="20" 
                         className="checkbox__input"
                         checked={this.state.selectedValue === '20'}
                         onChange={this.handleChange}
                     />
+                <label className="checkbox__label" htmlFor='20'>
                     20
                 </label>
-                <label>
-                    <input type="radio" 
+                <input type="radio"
+                            id='30'
                             name="limit" 
                             value="30" 
                             className="checkbox__input"
                             checked={this.state.selectedValue === '30'}
                             onChange={this.handleChange}
                     />
+                <label className="checkbox__label" htmlFor='30'>
                     30
                 </label>
-                <label>
-                    <input 
+                <input id='40'
                         type="radio" 
                         name="limit" 
                         value="40" 
@@ -53,10 +53,10 @@ export default class LimitButtonsList extends React.Component {
                         checked={this.state.selectedValue === '40'}
                         onChange={this.handleChange}
                     />
+                <label className="checkbox__label" htmlFor='40'>
                     40
                 </label>
-                <label>
-                    <input 
+                <input id='50'
                         type="radio" 
                         name="limit" 
                         value="50" 
@@ -64,6 +64,7 @@ export default class LimitButtonsList extends React.Component {
                         checked={this.state.selectedValue === '50'}
                         onChange={this.handleChange}
                     />
+                <label className="checkbox__label" htmlFor='50'>
                     50
                 </label>
 

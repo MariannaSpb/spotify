@@ -5,6 +5,7 @@ import ArtistList from './ArtistList';
 import TrackList from './TrackList';
 import SearchForm from './SearchForm';
 import PlayListCollection from './PlayListCollection';
+import {connect} from 'react-redux';
 
 
 //mockData
@@ -63,14 +64,14 @@ const trackArray = [
 ];
  const playlistArray = [
     {
-    name: 'name',
+    name: 'playlist1',
     link: 'link',
     image: 'img',
     totalTracks: 12,
     ownerName: 'owner name'
     },
     {
-    name: 'name',
+    name: 'playlist1',
     link: 'link',
     image: 'img',
     totalTracks: 12,
@@ -79,14 +80,9 @@ const trackArray = [
  ]
 
 
-export default class Home extends React.Component  {
+const Home = class extends React.Component  {
     constructor() {
         super();
-        this.state = {
-            //isAuthenticatedWithSpotify: localStorage.getItem('isAuthenticatedWithSpotify'),
-            accessToken: localStorage.getItem('accessToken'),
-            isAuthenticatedWithSpotify: true
-          }
     }
 
     getDataFromStorage = () => { 
@@ -97,16 +93,16 @@ export default class Home extends React.Component  {
         this.getDataFromStorage()
     }
 
-  logOutBack = () => { 
-    localStorage.setItem('accessToken', '');
-      this.setState({isAuthenticatedWithSpotify: false, accessToken:''})
-      console.log('state', this.state)
-  }
+    logOutBack = () => { 
+       //this.props.tokenReducer.tokens.accessToken= '';
+        // console.log('state', this.state)
+        // localStorage.setItem('accessToken', '');
+        // this.setState({isAuthenticatedWithSpotify: false, accessToken:''})
+        console.log('tokenlogout', this.props.tokenReducer.tokens.accessToken)
+    }
 
     render() {
-        const { isAuthenticatedWithSpotify  } = this.state;
-        console.log('props', this.props) //token
-        if(!isAuthenticatedWithSpotify) {
+        if(!this.props.tokenReducer.tokens) {
             return(
                 <Redirect to='/' />
             )
@@ -114,15 +110,25 @@ export default class Home extends React.Component  {
         } else 
         return (
             <section className='homepage'>
-            <p>you are logged in  Spotify <button onClick={this.logOutBack}>LOG OUT</button></p>
+            <p> you are logged in  Spotify <a className="homepage__logout" onClick={this.logOutBack}>LOG OUT</a></p>
        
-            {/* <NavLink className="homepage__link-back" to='/home'>Go to your page </NavLink> */}
-              <SearchForm accessToken = {this.props.accessToken}/>
-              <ArtistList artistArray={artistArray} />
-              <TrackList trackArray={trackArray} />
-              <PlayListCollection playlistArray={playlistArray} />
+              <SearchForm />
+              <ArtistList />
+              {/* <TrackList trackArray={trackArray} />
+              <PlayListCollection playlistArray={playlistArray} /> */}
             </section>
 
         )
     }
+   
 }
+
+
+const actionMaps = (dispatch) => ({
+    insertTokens: (tokens) => dispatch({type: 'GET_TOKEN', tokens: tokens})
+ });
+ 
+ const propMaps = ({tokenReducer}) => ({
+   tokenReducer
+ })
+ export default  connect(propMaps, actionMaps)(Home)

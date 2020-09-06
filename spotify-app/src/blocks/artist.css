@@ -37,3 +37,7 @@
 .artist__link {
     color: white;
 }
+
+.artist__empty {
+    height: 100vh;
+}
